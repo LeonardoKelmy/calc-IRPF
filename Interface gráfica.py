@@ -30,7 +30,7 @@ def calcular_irpf(sl_bruto, dependentes):
     alíquota_efetiva = ir_devido / sl_bruto
 
     return sl_bruto, dependentes, sl_base, alíquota * 100, ir_devido, sl_liquido, alíquota_efetiva * 100
-
+psg.theme('DarkBrown6')
 def main():
     while True:
         layout = [
@@ -39,9 +39,9 @@ def main():
             [psg.Button('Calcular'), psg.Button('Fechar')],
         ]
 
-        window = psg.Window('Calculadora de IRPF mensal', layout)
+        janela = psg.Window('Calculadora de IRPF mensal', layout)
 
-        evento, valores = window.read()
+        evento, valores = janela.read()
 
         if evento == psg.WIN_CLOSED or evento == 'Fechar':
             break
@@ -65,7 +65,7 @@ def main():
         except ValueError:
             psg.popup_error('Informe valores válidos para salário e número de dependentes.')
 
-        window.close()
+        janela.close()
 
 if __name__ == '__main__':
     main()
